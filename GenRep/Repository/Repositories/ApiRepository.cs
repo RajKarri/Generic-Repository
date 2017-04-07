@@ -12,7 +12,7 @@ namespace Repository.Repositories
     using Newtonsoft.Json;
     using Repository.Contexts;
     using Repository.Interfaces;
-    using RestWrapper;    
+    using RestWrapper;
 
     /// <summary>
     /// API Repository
@@ -30,10 +30,11 @@ namespace Repository.Repositories
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiRepository{T}"/> class.
         /// </summary>
-        /// <param name="key">API key</param>
-        public ApiRepository(string key = "")
+        /// <param name="url">Url</param>
+        /// <param name="verb">Verb</param>
+        public ApiRepository(string url)
         {
-            this.apiContext = new ApiContext<T>(key);
+            this.apiContext = new ApiContext<T>(url);
         }
 
         /// <summary>
@@ -42,8 +43,7 @@ namespace Repository.Repositories
         /// <returns>Response of objects</returns>
         public IQueryable<T> GetAll()
         {
-            RestSharpMethod method = (RestSharpMethod)Enum.Parse(typeof(RestSharpMethod), apiContext.CurrentContext.Verb);
-            RestSharpCall.Init(apiContext.CurrentContext.Uri, method);
+            RestSharpCall.Init(apiContext.CurrentContext.Uri, RestSharpMethod.GET);
             var apiResponse = RestSharpCall.MakeAsync<List<object>>(jSonInput);
 
             IList<T> response = new List<T>();
@@ -70,8 +70,7 @@ namespace Repository.Repositories
 
         public T GetOne()
         {
-            RestSharpMethod method = (RestSharpMethod)Enum.Parse(typeof(RestSharpMethod), apiContext.CurrentContext.Verb);
-            RestSharpCall.Init(apiContext.CurrentContext.Uri, method);
+            RestSharpCall.Init(apiContext.CurrentContext.Uri, RestSharpMethod.GET);
             var apiResponse = RestSharpCall.MakeAsync<object>(jSonInput);
 
             T response = JsonConvert.DeserializeObject<T>(apiResponse.ToString());
@@ -123,8 +122,7 @@ namespace Repository.Repositories
         /// <returns>Response after addition</returns>
         public T Add(T entity)
         {
-            RestSharpMethod method = (RestSharpMethod)Enum.Parse(typeof(RestSharpMethod), apiContext.CurrentContext.Verb);
-            RestSharpCall.Init(apiContext.CurrentContext.Uri, method);
+            RestSharpCall.Init(apiContext.CurrentContext.Uri, RestSharpMethod.POST);
             //var apiResponse = RestSharpCall.MakeAsync<object>(jSonInput);
 
             return entity;
@@ -147,8 +145,7 @@ namespace Repository.Repositories
         /// <returns>Response after deletion</returns>
         public dynamic Delete(dynamic id)
         {
-            RestSharpMethod method = (RestSharpMethod)Enum.Parse(typeof(RestSharpMethod), apiContext.CurrentContext.Verb);
-            RestSharpCall.Init(apiContext.CurrentContext.Uri, method);
+            RestSharpCall.Init(apiContext.CurrentContext.Uri, RestSharpMethod.DELETE);
             var response = RestSharpCall.MakeAsync<object>(jSonInput);
 
             return response;
@@ -161,8 +158,7 @@ namespace Repository.Repositories
         /// <returns>Response after update</returns>
         public dynamic Update(T entity)
         {
-            RestSharpMethod method = (RestSharpMethod)Enum.Parse(typeof(RestSharpMethod), apiContext.CurrentContext.Verb);
-            RestSharpCall.Init(apiContext.CurrentContext.Uri, method);
+            RestSharpCall.Init(apiContext.CurrentContext.Uri, RestSharpMethod.POST);
             var response = RestSharpCall.MakeAsync<object>(jSonInput);
 
             return response;

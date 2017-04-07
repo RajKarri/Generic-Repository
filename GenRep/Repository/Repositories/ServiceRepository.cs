@@ -17,7 +17,7 @@ namespace Repository.Repositories
     /// Service repository
     /// </summary>
     /// <typeparam name="T">Type of the service repository</typeparam>
-    public class ServiceRepository<T> : IRepository<T> where T : class
+    public class ServiceRepository<T> : Interfaces.IRepository<T> where T : class
     {
         /// <summary>
         /// Service context
