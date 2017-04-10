@@ -1,10 +1,11 @@
-﻿using Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Models;
+using Newtonsoft.Json;
 
 namespace Api.Controllers
 {
@@ -15,33 +16,73 @@ namespace Api.Controllers
         {
             IList<Customer> customers = new List<Customer>();
 
-            customers.Add(new Customer() { Id = 1, FName = "David", LName = "Hoffman", Address1 = "605 Sharview Cir", Address2 = "#1735",
-                          State = "NC", Country = "USA", Zipcode = "28217", Email = "demo1@mail.com", Phone = "1112223333" });
-            customers.Add(new Customer() { Id = 2, FName = "Andy", LName = "Hoffman", Address1 = "605 Sharview Cir", Address2 = "#1735",
-                          State = "NC", Country = "USA", Zipcode = "28217", Email = "demo2@mail.com", Phone = "4442223333" });
+            customers.Add(new Customer()
+            {
+                Id = 1,
+                FName = "David",
+                LName = "Hoffman",
+                Address1 = "605 Sharview Cir",
+                Address2 = "#1735",
+                State = "NC",
+                Country = "USA",
+                Zipcode = "28217",
+                Email = "demo1@mail.com",
+                Phone = "1112223333"
+            });
+            customers.Add(new Customer()
+            {
+                Id = 2,
+                FName = "Andy",
+                LName = "Hoffman",
+                Address1 = "605 Sharview Cir",
+                Address2 = "#1735",
+                State = "NC",
+                Country = "USA",
+                Zipcode = "28217",
+                Email = "demo2@mail.com",
+                Phone = "4442223333"
+            });
 
             return customers;
         }
 
         // GET api/customer/5
-        public string Get(int id)
+        public Customer Get(int id)
         {
-            return "value";
+            var customer = new Customer()
+            {
+                Id = id,
+                FName = "Andy",
+                LName = "Hoffman",
+                Address1 = "605 Sharview Cir",
+                Address2 = "#1735",
+                State = "NC",
+                Country = "USA",
+                Zipcode = "28217",
+                Email = "demo2@mail.com",
+                Phone = "4442223333"
+            };
+
+            return customer;
         }
 
         // POST api/customer
-        public void Post([FromBody]string value)
+        public string Post(Customer customer)
         {
+            return "Customer " + customer.FName + " details added";
         }
 
         // PUT api/customer/5
-        public void Put(int id, [FromBody]string value)
+        public string Put(int id, Customer customer)
         {
+            return "Customer " + customer.FName + " details updated";
         }
 
+
         // DELETE api/customer/5
-        public void Delete(int id)
+        public string Delete(int id)
         {
+            return "Customer record deleted";
         }
     }
 }
