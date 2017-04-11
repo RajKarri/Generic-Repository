@@ -13,6 +13,14 @@ namespace Repository.Repositories
     {
         private ApiContext<T> apiContext;
 
+        private string urlValues
+        {
+            get
+            {
+                return Input != null ? (Input.ContainsKey("UrlValues") ? "/" + string.Join("/", (List<string>)Input["UrlValues"]) : null) : null;
+            }
+        }
+
         private IDictionary<string, string> parameters
         {
             get
@@ -29,14 +37,6 @@ namespace Repository.Repositories
             }
         }
 
-        private string urlValues
-        {
-            get
-            {
-                return Input != null ? (Input.ContainsKey("UrlValues") ? "/" + string.Join("/", (List<string>)Input["UrlValues"]) : null) : null;
-            }
-        }
-
         public IDictionary<string, object> Input { get; set; }
 
         public ApiRepository(string key)
@@ -46,10 +46,9 @@ namespace Repository.Repositories
 
         public IQueryable<T> GetAll()
         {
+            IList<T> response = new List<T>();
             RestSharpCall.Init(apiContext.CurrentContext.Uri + urlValues, RestSharpMethod.GET);
             var apiResponse = RestSharpCall.MakeAsync<List<object>>(parameters, headers);
-
-            IList<T> response = new List<T>();
 
             if (apiResponse != null)
             {
@@ -106,7 +105,6 @@ namespace Repository.Repositories
         {
             RestSharpCall.Init(apiContext.CurrentContext.Uri + "/" + id, RestSharpMethod.DELETE);
             var response = RestSharpCall.MakeAsync<object>(null, headers);
-
             return response;
         }
 
@@ -114,7 +112,6 @@ namespace Repository.Repositories
         {
             RestSharpCall.Init(apiContext.CurrentContext.Uri + urlValues, RestSharpMethod.PUT);
             var response = RestSharpCall.MakeAsync<object>(parameters, headers, null, null, null, entity);
-
             return response;
         }
 

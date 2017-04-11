@@ -1,10 +1,9 @@
-﻿using System;
+﻿using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
-using Repository.Interfaces;
 using Models;
+using Repository.Interfaces;
 using Repository.Repositories;
-using System.Linq;
+using System.Collections.Generic;
 
 namespace Tests
 {
@@ -81,6 +80,5 @@ namespace Tests
             IRepository<Customer> customerRepository = new ApiRepository<Customer>(CustomerKey);
             var response = customerRepository.Delete(2);
         }
-
     }
 }

@@ -7,7 +7,7 @@ namespace Repository.Contexts
     public class ApiContext<T> : IContext<ApiSourceContext>
     {
         private ApiSourceContext apiSourceContext = null;
-        private string key = string.Empty;        
+        private string key = string.Empty;
 
         public ApiContext(string url)
         {
@@ -27,6 +27,7 @@ namespace Repository.Contexts
         {
             ApiSourceContext sourceContext = new ApiSourceContext();
             sourceContext.Uri = ConfigurationManager.AppSettings[key];
+            sourceContext.Uri = sourceContext.Uri != null ? sourceContext.Uri.TrimEnd(new char[] { '/', '\\' }) : null;
             return sourceContext;
         }
     }

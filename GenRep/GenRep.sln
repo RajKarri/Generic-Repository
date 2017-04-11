@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{18C2698C-15F6-41CC-9F56-9637F222B12E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCodeFirst", "EFCodeFirst\EFCodeFirst.csproj", "{9524BBEE-C123-467E-85DA-E1B35A9A6D3C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,11 +43,16 @@ Global
 		{18C2698C-15F6-41CC-9F56-9637F222B12E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18C2698C-15F6-41CC-9F56-9637F222B12E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18C2698C-15F6-41CC-9F56-9637F222B12E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9524BBEE-C123-467E-85DA-E1B35A9A6D3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9524BBEE-C123-467E-85DA-E1B35A9A6D3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9524BBEE-C123-467E-85DA-E1B35A9A6D3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9524BBEE-C123-467E-85DA-E1B35A9A6D3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C7F0EEF2-CFE3-4E60-A527-371FF9DA95FD} = {52E7E740-2E11-47A1-B383-11A117DBAFA7}
+		{9524BBEE-C123-467E-85DA-E1B35A9A6D3C} = {52E7E740-2E11-47A1-B383-11A117DBAFA7}
 	EndGlobalSection
 EndGlobal
