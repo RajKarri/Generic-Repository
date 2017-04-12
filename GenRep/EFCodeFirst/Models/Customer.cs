@@ -1,7 +1,12 @@
-﻿namespace EFCodeFirst.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace EFCodeFirst.Models
 {
+    [Table("Customer")]
     public class Customer
     {
+        [Key]
         public int Id { get; set; }
         public string FName { get; set; }
         public string LName { get; set; }

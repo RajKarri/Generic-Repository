@@ -80,6 +80,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EFCodeFirst\EFCodeFirst.csproj">
+      <Project>{9524bbee-c123-467e-85da-e1b35a9a6d3c}</Project>
+      <Name>EFCodeFirst</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RestWrapper\RestWrapper.csproj">
       <Project>{5e9bfd78-b65c-4b70-bf74-315ba00eceda}</Project>
       <Name>RestWrapper</Name>

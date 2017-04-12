@@ -1,6 +1,6 @@
-﻿using System;
-using Repository.Interfaces;
+﻿using Repository.Interfaces;
 using Repository.SourceContexts;
+using EFCodeFirst;
 
 namespace Repository.Contexts
 {
@@ -23,9 +23,14 @@ namespace Repository.Contexts
 
         public EntityFrameworkSourceContext GetContext()
         {
-            // Use key or T or both to get the context
-            // Implement logic to return API source context
-            throw new NotImplementedException();
+            EntityFrameworkSourceContext sourceContext = new EntityFrameworkSourceContext();
+
+            if (key == "InventoryContext")
+            {
+                sourceContext.DbContext = new InventoryContext();
+            }
+
+            return sourceContext;
         }
     }
 }
