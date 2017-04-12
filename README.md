@@ -9,37 +9,71 @@ As mentioned earlier, goal of this template is to reduce lot of boilerplate code
 Business layer just see eveything as objects comes out of repository.
 
 ## How this works?
-    yet to update
+Fork or Download GitHub repository("GenRep") to see how this works in action.
+    
 ## Api repository
 
 Api repository GET call looks like
 
-        [TestMethod]
-        public void GitHubUserGetTest()
+        public void RetrieveGitUserTest()
         {
-            IRepository<GitUser> userRepository = new ApiRepository<GitUser>(UserKey);
+            IRepository<GitUser> userRepository = new ApiRepository<GitUser>("GitUserApi");
             var gitUser = userRepository.Get();
         }
 Api repository GET call with URL parameters looks like
 
-        [TestMethod]
-        public void GitHubUsersGetAllTest()
+        public void RetrieveAllGitUserTest()
         {
-            IDictionary<string, string> parameters = new Dictionary<string, string>()
-            {
-                { "since", "135" }
-            };
+            IDictionary<string, string> parameters = new Dictionary<string, string>() { { "since", "135" } };
             IDictionary<string, object> input = new Dictionary<string, object>();
             input.Add("Parameters", parameters);
 
-            IRepository<GitUser> usersRepository = new ApiRepository<GitUser>(UsersKey);
+            IRepository<GitUser> usersRepository = new ApiRepository<GitUser>("GitUsersApi");
             usersRepository.Input = input;
             List<GitUser> gitUsers = usersRepository.GetAll().ToList();
         }
 ## Entity framework code first repository
-    yet to update
+
+EF code first repository call looks like
+
+        public void RetrieveCustomersTest()
+        {
+            IRepository<Customer> customersRepository = new EntityFrameworkRepository<Customer>("InventoryContext");
+            var customers = customersRepository.GetAll().ToList();
+        }
+EF code first repository call for creation looks like
+       
+        public void CreateCustomerTest()
+        {
+            IRepository<Customer> customersRepository = new EntityFrameworkRepository<Customer>("InventoryContext");
+            Customer customer = new Customer()
+            {
+                FName = "Dave",
+                LName = "Richardson",
+                Address1 = "605 Sharview Cir",
+                Address2 = "#1735",
+                State = "NC",
+                Country = "USA",
+                Zipcode = "28217",
+                Phone = "1234567890",
+                Email = "a@a.com"
+            };
+            var response = customersRepository.Add(customer);
+            customersRepository.SaveChanges();
+        }
+EF code first repository call for updation looks like   
+    
+        public void UpdateCustomerTest()
+        {
+            IRepository<Customer> customersRepository = new EntityFrameworkRepository<Customer>("InventoryContext");
+            var customer = customersRepository.GetBy(x => x.Id == 1);
+            customer.FName = "Andy";
+            var response = customersRepository.Update(customer);
+            customersRepository.SaveChanges();
+        }
+        
 ## Entity framework database first repository
-    yet to update
+    yet to update (This one is similar to code frist approach)
 ## Database(ADO.Net) repository
     yet to update
 ## Web service repository
