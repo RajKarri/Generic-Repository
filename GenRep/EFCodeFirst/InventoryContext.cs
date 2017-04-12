@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
-using EFCodeFirst.Models;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using Models;
 
 namespace EFCodeFirst
 {

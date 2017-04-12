@@ -48,14 +48,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="InventoryContext.cs" />
-    <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\Inventory.cs" />
-    <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{f1aca49f-8e9a-445b-aa43-df4e0a79be2a}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

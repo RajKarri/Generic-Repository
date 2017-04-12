@@ -46,7 +46,7 @@ namespace Repository.Repositories
 
         public T Get()
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException("This method is not supported in entity framework.");
         }
 
         public T Add(T entity)
