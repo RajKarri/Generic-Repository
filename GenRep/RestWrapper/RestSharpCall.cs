@@ -23,14 +23,14 @@ namespace RestWrapper
         }
 
         public static object Make(
-                             IDictionary<string, string> parameters = null,
-                             IDictionary<string, string> urlSegments = null,
+                             IDictionary<string, string> parameters = null,                             
                              IDictionary<string, string> headers = null,
+                             IDictionary<string, string> urlSegments = null,
                              object objectForUri = null,
                              object objectForBody = null,
                              object objectForJsonBody = null)
         {
-            SetRequest(parameters, urlSegments, headers, objectForUri, objectForBody, objectForJsonBody);
+            SetRequest(parameters, headers, urlSegments, objectForUri, objectForBody, objectForJsonBody);
             object response = Make();
             return response;
         }
@@ -43,13 +43,13 @@ namespace RestWrapper
 
         public static object MakeAsync(
                              IDictionary<string, string> parameters = null,
-                             IDictionary<string, string> urlSegments = null,
                              IDictionary<string, string> headers = null,
+                             IDictionary<string, string> urlSegments = null,                             
                              object objectForUri = null,
                              object objectForBody = null,
                              object objectForJsonBody = null)
         {
-            SetRequest(parameters, urlSegments, headers, objectForUri, objectForBody, objectForJsonBody);
+            SetRequest(parameters, headers, urlSegments, objectForUri, objectForBody, objectForJsonBody);
             object response = MakeAsync();
             return response;
         }
@@ -62,14 +62,14 @@ namespace RestWrapper
 
         public static TResponse Make<TResponse>(
                                 IDictionary<string, string> parameters = null,
-                                IDictionary<string, string> urlSegments = null,
                                 IDictionary<string, string> headers = null,
+                                IDictionary<string, string> urlSegments = null,                                
                                 object objectForUri = null,
                                 object objectForBody = null,
                                 object objectForJsonBody = null)
                                 where TResponse : new()
         {
-            SetRequest(parameters, urlSegments, headers, objectForUri, objectForBody, objectForJsonBody);
+            SetRequest(parameters, headers, urlSegments, objectForUri, objectForBody, objectForJsonBody);
             TResponse response = Make<TResponse>();
             return response;
         }
@@ -82,22 +82,22 @@ namespace RestWrapper
 
         public static TResponse MakeAsync<TResponse>(
                                 IDictionary<string, string> parameters = null,
-                                IDictionary<string, string> urlSegments = null,
                                 IDictionary<string, string> headers = null,
+                                IDictionary<string, string> urlSegments = null,                                
                                 object objectForUri = null,
                                 object objectForBody = null,
                                 object objectForJsonBody = null)
                                 where TResponse : new()
         {
-            SetRequest(parameters, urlSegments, headers, objectForUri, objectForBody, objectForJsonBody);
+            SetRequest(parameters, headers, urlSegments, objectForUri, objectForBody, objectForJsonBody);
             TResponse response = MakeAsync<TResponse>();
             return response;
         }
 
         private static void SetRequest(
                             IDictionary<string, string> parameters,
-                            IDictionary<string, string> urlSegments,
                             IDictionary<string, string> headers,
+                            IDictionary<string, string> urlSegments,                            
                             object objectForUri,
                             object objectForBody,
                             object objectForJsonBody)
@@ -110,19 +110,19 @@ namespace RestWrapper
                 }
             }
 
-            if (urlSegments != null)
-            {
-                foreach (KeyValuePair<string, string> segment in urlSegments)
-                {
-                    request.AddUrlSegment(segment.Key, segment.Value);
-                }
-            }
-
             if (headers != null)
             {
                 foreach (KeyValuePair<string, string> header in headers)
                 {
                     request.AddHeader(header.Key, header.Value);
+                }
+            }
+
+            if (urlSegments != null)
+            {
+                foreach (KeyValuePair<string, string> segment in urlSegments)
+                {
+                    request.AddUrlSegment(segment.Key, segment.Value);
                 }
             }
 
