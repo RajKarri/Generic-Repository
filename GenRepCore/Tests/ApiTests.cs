@@ -11,7 +11,7 @@ namespace Tests
     public class ApiTests
     {
         [TestMethod]
-        public void RetrieveGitUserTest()
+        public void Api_RetrieveGitUserTest()
         {
             IDictionary<string, string> headers = new Dictionary<string, string>() { { "User-Agent", "rajkarri" } };
             IDictionary<string, object> input = new Dictionary<string, object>();
@@ -23,7 +23,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void RetrieveAllGitUserTest()
+        public void Api_RetrieveAllGitUserTest()
         {
             IDictionary<string, string> parameters = new Dictionary<string, string>() { { "since", "135" } };
             IDictionary<string, string> headers = new Dictionary<string, string>() { { "User-Agent", "rajkarri" } };
@@ -37,14 +37,14 @@ namespace Tests
         }
 
         [TestMethod]
-        public void RetrieveAllCustomersTest()
+        public void Api_RetrieveAllCustomersTest()
         {
             IRepository<Customer> customerRepository = new ApiRepository<Customer>("CustomerApi");
             List<Customer> customers = customerRepository.GetAll().ToList();
         }
 
         [TestMethod]
-        public void RetrieveCustomerTest()
+        public void Api_RetrieveCustomerTest()
         {
             IList<string> urlValues = new List<string>() { "1" };
             IDictionary<string, object> input = new Dictionary<string, object>();
@@ -56,14 +56,14 @@ namespace Tests
         }
 
         [TestMethod]
-        public void CreateCustomerTest()
+        public void Api_CreateCustomerTest()
         {
             IRepository<Customer> customerRepository = new ApiRepository<Customer>("CustomerApi");
             Customer customer = customerRepository.Add(new Customer() { Id = 55, FName = "User1" });
         }
 
         [TestMethod]
-        public void UpdateCustomerTest()
+        public void Api_UpdateCustomerTest()
         {
             IList<string> urlValues = new List<string>() { "55" };
             IDictionary<string, object> input = new Dictionary<string, object>();
@@ -75,7 +75,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void DeleteCustomerTest()
+        public void Api_DeleteCustomerTest()
         {
             IRepository<Customer> customerRepository = new ApiRepository<Customer>("CustomerApi");
             var response = customerRepository.Delete(2);

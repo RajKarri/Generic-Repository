@@ -1,7 +1,9 @@
-﻿namespace Repository.SourceContexts
+﻿using WcfService.Interfaces;
+
+namespace Repository.SourceContexts
 {
-    public class ServiceSourceContext
+    public class ServiceSourceContext<T> where T : class
     {
-        // Add needed properties for service source context
+        public IServiceProxy<T> ServiceProxy { get; set; }
     }
 }

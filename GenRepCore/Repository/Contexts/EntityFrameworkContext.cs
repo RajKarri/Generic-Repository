@@ -25,13 +25,12 @@ namespace Repository.Contexts
         public EntityFrameworkSourceContext GetContext()
         {
             EntityFrameworkSourceContext sourceContext = new EntityFrameworkSourceContext();
+            var builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
+            IConfigurationRoot Configuration = builder.Build();
 
-            if (key == "InventoryContext")
+            if (typeof(T).Equals(typeof(Models.Customer)))
             {
-                var builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
-                IConfigurationRoot Configuration = builder.Build();
                 string connection = Configuration["InventoryContext"];
-
                 sourceContext.DbContext = new InventoryContext(connection);
             }
 

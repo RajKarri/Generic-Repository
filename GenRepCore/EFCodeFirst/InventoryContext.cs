@@ -22,7 +22,7 @@ namespace EFCodeFirst
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(connection);
+            optionsBuilder.UseSqlServer(connection);            
         }
     }
 }

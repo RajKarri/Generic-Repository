@@ -12,6 +12,7 @@
   <ItemGroup>
     <ProjectReference Include="..\EFCodeFirst\EFCodeFirst.csproj" />
     <ProjectReference Include="..\RestWrapper\RestWrapper.csproj" />
+    <ProjectReference Include="..\WcfService\WcfService.csproj" />
   </ItemGroup>
 
 </Project>

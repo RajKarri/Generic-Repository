@@ -18,37 +18,37 @@ namespace Repository.Repositories
 
         public IQueryable<T> GetAll()
         {
-            throw new NotImplementedException();
+            return serviceContext.CurrentContext.ServiceProxy.Get();
         }
 
         public IQueryable<T> GetAll(Expression<Func<T, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return serviceContext.CurrentContext.ServiceProxy.Get(predicate);
         }
 
         public IQueryable<T> GetNEntities(int pageNumber, int count)
         {
-            throw new NotImplementedException();
+            return serviceContext.CurrentContext.ServiceProxy.Get().Skip((pageNumber - 1) * count).Take(count);
         }
 
         public IQueryable<T> GetNEntities(Expression<Func<T, bool>> predicate, int pageNumber, int count)
         {
-            throw new NotImplementedException();
+            return serviceContext.CurrentContext.ServiceProxy.Get(predicate).Skip((pageNumber - 1) * count).Take(count);
         }
 
         public T Get()
         {
-            throw new NotImplementedException();
+            return serviceContext.CurrentContext.ServiceProxy.Get().FirstOrDefault();
         }
 
         public T GetBy(Expression<Func<T, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return serviceContext.CurrentContext.ServiceProxy.Get(predicate).FirstOrDefault();
         }
 
-        public T Add(T entity)
+        public dynamic Add(T entity)
         {
-            throw new NotImplementedException();
+            return serviceContext.CurrentContext.ServiceProxy.Add(entity);
         }
 
         public dynamic Remove(T entity)
@@ -58,12 +58,12 @@ namespace Repository.Repositories
 
         public dynamic Delete(dynamic id)
         {
-            throw new NotImplementedException();
+            return serviceContext.CurrentContext.ServiceProxy.Delete(id);
         }
 
         public dynamic Update(T entity)
         {
-            throw new NotImplementedException();
+            return serviceContext.CurrentContext.ServiceProxy.Update(entity);
         }
 
         public void SaveChanges()

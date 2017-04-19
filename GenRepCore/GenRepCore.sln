@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestWrapper", "RestWrapper\RestWrapper.csproj", "{3E17A9DB-9DC3-405E-9F31-7D6706F941A0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfService", "WcfService\WcfService.csproj", "{AEE9D3EC-D977-41B0-967E-F4146F16833B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{3E17A9DB-9DC3-405E-9F31-7D6706F941A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E17A9DB-9DC3-405E-9F31-7D6706F941A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E17A9DB-9DC3-405E-9F31-7D6706F941A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEE9D3EC-D977-41B0-967E-F4146F16833B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEE9D3EC-D977-41B0-967E-F4146F16833B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEE9D3EC-D977-41B0-967E-F4146F16833B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEE9D3EC-D977-41B0-967E-F4146F16833B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,5 +60,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{DBCEA081-B65C-4A32-88C2-42AFA8081A51} = {5960B08D-2C49-4AFE-90C3-6F24708CD2AB}
 		{24D3F081-22A7-4F63-A333-A970AA202C87} = {5960B08D-2C49-4AFE-90C3-6F24708CD2AB}
+		{AEE9D3EC-D977-41B0-967E-F4146F16833B} = {5960B08D-2C49-4AFE-90C3-6F24708CD2AB}
 	EndGlobalSection
 EndGlobal

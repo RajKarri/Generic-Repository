@@ -47,7 +47,7 @@ namespace Repository.Repositories
             throw new NotImplementedException();
         }
 
-        public T Add(T entity)
+        public dynamic Add(T entity)
         {
             throw new NotImplementedException();
         }

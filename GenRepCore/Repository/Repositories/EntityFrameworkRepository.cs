@@ -49,7 +49,7 @@ namespace Repository.Repositories
             throw new NotSupportedException("This method is not supported in entity framework.");
         }
 
-        public T Add(T entity)
+        public dynamic Add(T entity)
         {
             this.databaseSet.Add(entity);
             return entity;

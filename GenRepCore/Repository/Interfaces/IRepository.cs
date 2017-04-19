@@ -14,7 +14,7 @@ namespace Repository.Interfaces
         IQueryable<T> GetAll();
         IQueryable<T> GetAll(Expression<Func<T, bool>> predicate);
         T GetBy(Expression<Func<T, bool>> predicate);
-        T Add(T entity);
+        dynamic Add(T entity);
         dynamic Update(T entity);
         dynamic Remove(T entity);
         dynamic Delete(dynamic id);

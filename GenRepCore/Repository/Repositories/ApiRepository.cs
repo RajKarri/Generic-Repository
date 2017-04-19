@@ -88,7 +88,7 @@ namespace Repository.Repositories
             return response;
         }
 
-        public T Add(T entity)
+        public dynamic Add(T entity)
         {
             RestSharpCall.Init(apiContext.CurrentContext.Uri + urlValues, RestSharpMethod.POST);
             var apiResponse = RestSharpCall.MakeAsync<object>(parameters, headers, null, null, null, entity);

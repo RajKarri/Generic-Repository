@@ -1,10 +1,11 @@
 ﻿using System;
 using Repository.Interfaces;
 using Repository.SourceContexts;
+using WcfService;
 
 namespace Repository.Contexts
 {
-    public class ServiceContext<T> : IContext<ServiceSourceContext>
+    public class ServiceContext<T> : IContext<ServiceSourceContext<T>> where T : class
     {
         private string key = string.Empty;
 
@@ -13,7 +14,7 @@ namespace Repository.Contexts
             this.key = key;
         }
 
-        public ServiceSourceContext CurrentContext
+        public ServiceSourceContext<T> CurrentContext
         {
             get
             {
@@ -21,11 +22,16 @@ namespace Repository.Contexts
             }
         }
 
-        public ServiceSourceContext GetContext()
+        public ServiceSourceContext<T> GetContext()
         {
-            // Use key or T or both to get the context
-            // Implement logic to return API source context
-            throw new NotImplementedException();
+            ServiceSourceContext<T> sourceContext = new ServiceSourceContext<T>();
+
+            if (typeof(T).Equals(typeof(Models.Customer)))
+            {
+                sourceContext.ServiceProxy = new CustomerServiceProxy<T>();
+            }
+
+            return sourceContext;
         }
     }
 }

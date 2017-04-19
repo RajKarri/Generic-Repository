@@ -1,24 +1,25 @@
-using System;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Models;
 using Repository.Interfaces;
 using Repository.Repositories;
-
+using WcfService;
+using System;
 
 namespace Tests
 {
     [TestClass]
-    public class EFCodeFirstTests
+    public class WcfServiceTests
     {
-        public EFCodeFirstTests()
+        public WcfServiceTests()
         {
         }
 
         [TestMethod]
-        public void EFCodeFirst_CreateCustomerTest()
+        public void WcfService_CreateCustomerTest()
         {
-            IRepository<Customer> customersRepository = new EntityFrameworkRepository<Customer>();
+            IRepository<Customer> customersRepository = new ServiceRepository<Customer>();
             Customer customer = new Customer()
             {
                 FName = "Dave" + DateTime.Now,
@@ -32,33 +33,29 @@ namespace Tests
                 Email = "a@a.com"
             };
             var response = customersRepository.Add(customer);
-            customersRepository.SaveChanges();
         }
 
         [TestMethod]
-        public void EFCodeFirst_RetrieveCustomersTest()
+        public void WcfService_RetrieveCustomersTest()
         {
-            IRepository<Customer> customersRepository = new EntityFrameworkRepository<Customer>();
+            IRepository<Customer> customersRepository = new ServiceRepository<Customer>();
             var customers = customersRepository.GetAll().ToList();
         }
 
         [TestMethod]
-        public void EFCodeFirst_UpdateCustomerTest()
+        public void WcfService_UpdateCustomerTest()
         {
-            IRepository<Customer> customersRepository = new EntityFrameworkRepository<Customer>();
+            IRepository<Customer> customersRepository = new ServiceRepository<Customer>();
             var customer = customersRepository.GetBy(x => x.Id == 1);
             customer.FName = "Andy";
             var response = customersRepository.Update(customer);
-            customersRepository.SaveChanges();
         }
 
         [TestMethod]
-        public void EFCodeFirst_DeleteCustomerTest()
+        public void WcfService_DeleteCustomerTest()
         {
-            IRepository<Customer> customersRepository = new EntityFrameworkRepository<Customer>();
-            var customer = customersRepository.GetBy(x => x.Id == 1);
-            var response = customersRepository.Remove(customer);
-            customersRepository.SaveChanges();
+            IRepository<Customer> customersRepository = new ServiceRepository<Customer>();
+            var response = customersRepository.Delete(1);
         }
     }
 }
