@@ -1,11 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Models;
 using Repository.Interfaces;
 using Repository.Repositories;
-using WcfService;
-using System;
 
 namespace Tests
 {

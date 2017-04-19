@@ -1,9 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
-using Models;
-using System;
+﻿using Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace EFCodeFirst
 {
