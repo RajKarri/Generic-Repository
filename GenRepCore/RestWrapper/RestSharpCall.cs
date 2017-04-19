@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RestSharp;
+using System.Net;
 
 namespace RestWrapper
 {
@@ -20,7 +21,14 @@ namespace RestWrapper
         public static object MakeAsync()
         {
             var response = ExecuteAsync();
-            return JsonConvert.DeserializeObject<object>(response.Result.ToString());
+            var res = (RestResponse)response.Result;
+
+            if (res.StatusCode == HttpStatusCode.OK)
+            {
+                return JsonConvert.DeserializeObject<object>(res.ToString());
+            }
+            else
+                throw new Exception(res.Content);
         }
 
         public static object MakeAsync(
@@ -40,7 +48,13 @@ namespace RestWrapper
         {
             var response = ExecuteAsync();
             var res = (RestResponse)response.Result;
-            return JsonConvert.DeserializeObject<TResponse>(res.Content);
+
+            if (res.StatusCode == HttpStatusCode.OK)
+            {
+                return JsonConvert.DeserializeObject<TResponse>(res.Content);
+            }
+            else
+                throw new Exception(res.Content);
         }
 
         public static TResponse MakeAsync<TResponse>(

@@ -1,23 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.9
+VisualStudioVersion = 15.0.26403.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sandbox", "Sandbox", "{5960B08D-2C49-4AFE-90C3-6F24708CD2AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{DBCEA081-B65C-4A32-88C2-42AFA8081A51}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{B5538FF9-24FD-43F0-943E-FF0C05B31399}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{B5538FF9-24FD-43F0-943E-FF0C05B31399}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{41735031-7489-43E8-BD3A-608168DC9809}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{41735031-7489-43E8-BD3A-608168DC9809}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCodeFirst", "EFCodeFirst\EFCodeFirst.csproj", "{24D3F081-22A7-4F63-A333-A970AA202C87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCodeFirst", "EFCodeFirst\EFCodeFirst.csproj", "{24D3F081-22A7-4F63-A333-A970AA202C87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{E4343170-2E16-42D1-AFE7-9D7C6C6DB59E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{E4343170-2E16-42D1-AFE7-9D7C6C6DB59E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestWrapper", "RestWrapper\RestWrapper.csproj", "{3E17A9DB-9DC3-405E-9F31-7D6706F941A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestWrapper", "RestWrapper\RestWrapper.csproj", "{3E17A9DB-9DC3-405E-9F31-7D6706F941A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WcfService", "WcfService\WcfService.csproj", "{AEE9D3EC-D977-41B0-967E-F4146F16833B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfService", "WcfService\WcfService.csproj", "{AEE9D3EC-D977-41B0-967E-F4146F16833B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{2580AF2D-4B85-4315-999B-4659FE732FFC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +25,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DBCEA081-B65C-4A32-88C2-42AFA8081A51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DBCEA081-B65C-4A32-88C2-42AFA8081A51}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DBCEA081-B65C-4A32-88C2-42AFA8081A51}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DBCEA081-B65C-4A32-88C2-42AFA8081A51}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B5538FF9-24FD-43F0-943E-FF0C05B31399}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B5538FF9-24FD-43F0-943E-FF0C05B31399}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5538FF9-24FD-43F0-943E-FF0C05B31399}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -53,13 +49,17 @@ Global
 		{AEE9D3EC-D977-41B0-967E-F4146F16833B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEE9D3EC-D977-41B0-967E-F4146F16833B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEE9D3EC-D977-41B0-967E-F4146F16833B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2580AF2D-4B85-4315-999B-4659FE732FFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2580AF2D-4B85-4315-999B-4659FE732FFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2580AF2D-4B85-4315-999B-4659FE732FFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2580AF2D-4B85-4315-999B-4659FE732FFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{DBCEA081-B65C-4A32-88C2-42AFA8081A51} = {5960B08D-2C49-4AFE-90C3-6F24708CD2AB}
 		{24D3F081-22A7-4F63-A333-A970AA202C87} = {5960B08D-2C49-4AFE-90C3-6F24708CD2AB}
 		{AEE9D3EC-D977-41B0-967E-F4146F16833B} = {5960B08D-2C49-4AFE-90C3-6F24708CD2AB}
+		{2580AF2D-4B85-4315-999B-4659FE732FFC} = {5960B08D-2C49-4AFE-90C3-6F24708CD2AB}
 	EndGlobalSection
 EndGlobal

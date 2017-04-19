@@ -1,8 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 
@@ -48,7 +44,7 @@ namespace Api.Controllers
         }
 
         // GET api/customer/5
-        [HttpGet]
+        [HttpGet("{id}")]
         public Customer Get(int id)
         {
             var customer = new Customer()
