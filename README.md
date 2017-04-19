@@ -15,14 +15,14 @@ Fork or Download GitHub repository("GenRep") to see how this works in action.
 
 Api repository GET call looks like
 
-        public void RetrieveGitUserTest()
+        public void Api_RetrieveGitUserTest()
         {
             IRepository<GitUser> userRepository = new ApiRepository<GitUser>("GitUserApi");
             var gitUser = userRepository.Get();
         }
 Api repository GET call with URL parameters looks like
 
-        public void RetrieveAllGitUserTest()
+        public void Api_RetrieveAllGitUserTest()
         {
             IDictionary<string, string> parameters = new Dictionary<string, string>() { { "since", "135" } };
             IDictionary<string, object> input = new Dictionary<string, object>();
@@ -36,16 +36,16 @@ Api repository GET call with URL parameters looks like
 
 EF code first repository call looks like
 
-        public void RetrieveCustomersTest()
+        public void EFCodeFirst_RetrieveCustomersTest()
         {
-            IRepository<Customer> customersRepository = new EntityFrameworkRepository<Customer>("InventoryContext");
+            IRepository<Customer> customersRepository = new EntityFrameworkRepository<Customer>();
             var customers = customersRepository.GetAll().ToList();
         }
 EF code first repository call for creation looks like
        
-        public void CreateCustomerTest()
+        public void EFCodeFirst_CreateCustomerTest()
         {
-            IRepository<Customer> customersRepository = new EntityFrameworkRepository<Customer>("InventoryContext");
+            IRepository<Customer> customersRepository = new EntityFrameworkRepository<Customer>();
             Customer customer = new Customer()
             {
                 FName = "Dave",
@@ -63,9 +63,9 @@ EF code first repository call for creation looks like
         }
 EF code first repository call for updation looks like   
     
-        public void UpdateCustomerTest()
+        public void EFCodeFirst_UpdateCustomerTest()
         {
-            IRepository<Customer> customersRepository = new EntityFrameworkRepository<Customer>("InventoryContext");
+            IRepository<Customer> customersRepository = new EntityFrameworkRepository<Customer>();
             var customer = customersRepository.GetBy(x => x.Id == 1);
             customer.FName = "Andy";
             var response = customersRepository.Update(customer);
@@ -77,7 +77,42 @@ EF code first repository call for updation looks like
 ## Database(ADO.Net) repository
     yet to update
 ## Web service repository
-    yet to update
+
+Web service repository call looks like
+
+        public void WcfService_RetrieveCustomersTest()
+        {
+            IRepository<Customer> customersRepository = new ServiceRepository<Customer>();
+            var customers = customersRepository.GetAll().ToList();
+        }        
+Web service repository call for creation looks like
+        
+        public void WcfService_CreateCustomerTest()
+        {
+            IRepository<Customer> customersRepository = new ServiceRepository<Customer>();
+            Customer customer = new Customer()
+            {
+                FName = "Dave" + DateTime.Now,
+                LName = "Richardson",
+                Address1 = "605 Sharview Cir",
+                Address2 = "#1735",
+                State = "NC",
+                Country = "USA",
+                Zipcode = "28217",
+                Phone = "1234567890",
+                Email = "a@a.com"
+            };
+            var response = customersRepository.Add(customer);
+        }
+Web service repository call for updation looks like
+
+        public void WcfService_UpdateCustomerTest()
+        {
+            IRepository<Customer> customersRepository = new ServiceRepository<Customer>();
+            var customer = customersRepository.GetBy(x => x.Id == 1);
+            customer.FName = "Andy";
+            var response = customersRepository.Update(customer);
+        }
 ## File system repository
     yet to update
 
